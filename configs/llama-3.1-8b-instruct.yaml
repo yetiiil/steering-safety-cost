@@ -1,0 +1,38 @@
+# CAST training configuration -- Llama-3.1-8B-Instruct.
+#
+# Values are the ones used for the paper's Llama runs; they come from the
+# command lines that produced the released vectors. Nothing here relies on
+# DEFAULT_CONFIG in train_cast.py: every value the runs depended on is written out.
+#
+# The behaviour is not fixed here because one config drives every behaviour:
+#   python train_cast.py --config configs/llama-3.1-8b-instruct.yaml \
+#       --behavior self-awareness-good-text-model
+
+model: meta-llama/llama-3.1-8b-instruct
+dtype: bfloat16
+
+# Rank-1 ablation: one direction r-hat, which is what every headline result uses.
+# The rank study (Table 4) reuses this file with --rank 2 / 4 / 8.
+rank: 1
+
+epochs: 5
+batch_size: 8
+effective_batch_size: 32
+
+# D_R over the refusal-token set (Eq. 3) as the safety objective.
+safety_loss_type: masked_kl
+
+# Verified steering layer for this model.
+steering_layer: 13
+# The vector is optimised against both steering polarities at half strength;
+# evaluation then sweeps the full multiplier range.
+steering_multipliers: [-0.5, 0.5]
+
+# Constrained optimisation: epsilon_e, epsilon_f and the dual step size.
+effect_margin: 0.005
+frr_margin: 0
+dual_lr: 0.025
+lambda_effect_init: 0.15
+lambda_frr_init: 0.025
+
+frr_max_new_tokens: 4

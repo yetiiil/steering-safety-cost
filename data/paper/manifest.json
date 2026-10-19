@@ -1,0 +1,270 @@
+{
+  "format_version": 1,
+  "paper": "https://arxiv.org/html/2608.08383v1",
+  "archive": "inputs.zip",
+  "archive_sha256": "8c3a6ad7576912ab783acc95f6aa65f02dd4934b04143c74745569cdb080e3de",
+  "scope": "Fixed inputs for the three main behaviors and three models. No model weights, generated responses, scores, tables or figures.",
+  "attribution": "See THIRD_PARTY.md and DATA_CARD.md for dataset sources, transformations and terms.",
+  "files": [
+    {
+      "path": "data/attacks/gcg/gcg_meta_llama_llama_3.1_8b_instruct_jailbreakbench.csv",
+      "group": "attacks-gcg",
+      "bytes": 36472,
+      "sha256": "58016188f228ff7e191c5ac03aef640948aafe1870b255d7ed7f984fd39abd20",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/attack_artifacts/gcg_meta_llama_llama_3.1_8b_instruct_jailbreakbench.csv",
+      "source_sha256": "58016188f228ff7e191c5ac03aef640948aafe1870b255d7ed7f984fd39abd20",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/attacks/gcg/gcg_qwen_qwen2.5_14b_instruct_jailbreakbench.csv",
+      "group": "attacks-gcg",
+      "bytes": 34856,
+      "sha256": "2b3e541a6b3cf18f21745006da440907cb3c34bb1d39d6fb9c084c51360158c3",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/attack_artifacts/gcg_qwen_qwen2.5_14b_instruct_jailbreakbench.csv",
+      "source_sha256": "2b3e541a6b3cf18f21745006da440907cb3c34bb1d39d6fb9c084c51360158c3",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/attacks/gcg/gcg_qwen_qwen2.5_7b_instruct_jailbreakbench.csv",
+      "group": "attacks-gcg",
+      "bytes": 35357,
+      "sha256": "5102490aac13608e801e6f26fe601d049d019297f02554fd27d2097759f23d59",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/attack_artifacts/gcg_qwen_qwen2.5_7b_instruct_jailbreakbench.csv",
+      "source_sha256": "5102490aac13608e801e6f26fe601d049d019297f02554fd27d2097759f23d59",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/attacks/jailbreakbench_autodan.csv",
+      "group": "attacks-autodan",
+      "bytes": 371160,
+      "sha256": "cc00ef0bfc8c8cab76fce9c1e54f4494eac724596f963408ecccccea8854dc4f",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/jailbreakbench_autodan.csv",
+      "source_sha256": "cc00ef0bfc8c8cab76fce9c1e54f4494eac724596f963408ecccccea8854dc4f",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/attacks/jailbreakbench_pair_llama_8b.json",
+      "group": "attacks-pair",
+      "bytes": 74589,
+      "sha256": "956755d5d2e6b7263d2cd631a9810f58ebffccb513d336eb4cdaba100fb1150b",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/jailbreakbench_pair_llama_8b.json",
+      "source_sha256": "38714a22fa097439916e3f3136c32c09ba4c868ecdba3d3ab1cc36f6966bf500",
+      "changes": "Keep only the four fields read by load_pair_data; remove model responses and optimisation logs"
+    },
+    {
+      "path": "data/attacks/jailbreakbench_pair_qwen_14b.json",
+      "group": "attacks-pair",
+      "bytes": 77830,
+      "sha256": "79964e3bbfdf2604bd1d551c1a570525e81debf1caa036f0487d0587ccb62528",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/jailbreakbench_pair_qwen_14b.json",
+      "source_sha256": "4d43681ea7c84e6717d5fd458da4811c540048fc3c5c40c7c48bb4ef91c06f42",
+      "changes": "Keep only the four fields read by load_pair_data; remove model responses and optimisation logs"
+    },
+    {
+      "path": "data/attacks/jailbreakbench_pair_qwen_7b.json",
+      "group": "attacks-pair",
+      "bytes": 78689,
+      "sha256": "128b00c2e11bdf80c706983f0586e41f2b0870f7b0f29003da2dd946e6b38964",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/jailbreakbench_pair_qwen_7b.json",
+      "source_sha256": "bb5bc1a3c447d085676ecbecbb117393c15a87b072301a821250fdc2fe8105d4",
+      "changes": "Keep only the four fields read by load_pair_data; remove model responses and optimisation logs"
+    },
+    {
+      "path": "data/behaviors/corrigible-more-HHH/generate_dataset.json",
+      "group": "behaviors-main",
+      "bytes": 623771,
+      "sha256": "e0dcbda27bcdd0c3abf7e5900f39aee42f6415a6c54d38e50169298e8a10e4ff",
+      "records": 900,
+      "source_path": "analyse-steering-pitfall/datasets/generate/corrigible-more-HHH/generate_dataset.json",
+      "source_sha256": "e0dcbda27bcdd0c3abf7e5900f39aee42f6415a6c54d38e50169298e8a10e4ff",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/corrigible-more-HHH/test_dataset_ab.json",
+      "group": "behaviors-main",
+      "bytes": 69637,
+      "sha256": "975c7a3516e3a021de5032d101df8d1d708c74a998b9e7f01a2c9654f2a3b866",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/test/corrigible-more-HHH/test_dataset_ab.json",
+      "source_sha256": "975c7a3516e3a021de5032d101df8d1d708c74a998b9e7f01a2c9654f2a3b866",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/corrigible-more-HHH/test_dataset_open_ended.json",
+      "group": "behaviors-main",
+      "bytes": 40219,
+      "sha256": "6bf258f9de0dbf89486c8b1854676200484c0425d72ed1165bdc531ed990ea93",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/test/corrigible-more-HHH/test_dataset_open_ended.json",
+      "source_sha256": "6bf258f9de0dbf89486c8b1854676200484c0425d72ed1165bdc531ed990ea93",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/power-seeking-inclination/generate_dataset.json",
+      "group": "behaviors-main",
+      "bytes": 564654,
+      "sha256": "c1153d367e7eaf75a16665c43200f4577ad51f3d8d97f5f939eec1903c14623a",
+      "records": 900,
+      "source_path": "analyse-steering-pitfall/datasets/generate/power-seeking-inclination/generate_dataset.json",
+      "source_sha256": "c1153d367e7eaf75a16665c43200f4577ad51f3d8d97f5f939eec1903c14623a",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/power-seeking-inclination/test_dataset_ab.json",
+      "group": "behaviors-main",
+      "bytes": 65001,
+      "sha256": "69dc3d0292a84cc28ff559aaccfd15ef48e62f637bbefd941044b4fd13542507",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/test/power-seeking-inclination/test_dataset_ab.json",
+      "source_sha256": "69dc3d0292a84cc28ff559aaccfd15ef48e62f637bbefd941044b4fd13542507",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/power-seeking-inclination/test_dataset_open_ended.json",
+      "group": "behaviors-main",
+      "bytes": 34218,
+      "sha256": "1b9603e8d94f213103e6661aa6678dc3365621a9d4d6e772a2eae84570f28269",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/test/power-seeking-inclination/test_dataset_open_ended.json",
+      "source_sha256": "1b9603e8d94f213103e6661aa6678dc3365621a9d4d6e772a2eae84570f28269",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/self-awareness-good-text-model/generate_dataset.json",
+      "group": "behaviors-main",
+      "bytes": 350844,
+      "sha256": "467c4909c7ec6393ff334ca76d0e422db78c731be29e87322e372e39566b6681",
+      "records": 800,
+      "source_path": "analyse-steering-pitfall/datasets/generate/self-awareness-good-text-model/generate_dataset.json",
+      "source_sha256": "467c4909c7ec6393ff334ca76d0e422db78c731be29e87322e372e39566b6681",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/self-awareness-good-text-model/test_dataset_ab.json",
+      "group": "behaviors-main",
+      "bytes": 88879,
+      "sha256": "5a3f634f1ba10c1c1dc94a24e22453b139f66b535926f58dfdf6eccfc3053802",
+      "records": 200,
+      "source_path": "analyse-steering-pitfall/datasets/test/self-awareness-good-text-model/test_dataset_ab.json",
+      "source_sha256": "5a3f634f1ba10c1c1dc94a24e22453b139f66b535926f58dfdf6eccfc3053802",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/behaviors/self-awareness-good-text-model/test_dataset_open_ended.json",
+      "group": "behaviors-main",
+      "bytes": 21455,
+      "sha256": "3080a916a9ca30e33606c88afe65e581942db78af355a1277893b68442b96554",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/datasets/test/self-awareness-good-text-model/test_dataset_open_ended.json",
+      "source_sha256": "3080a916a9ca30e33606c88afe65e581942db78af355a1277893b68442b96554",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/benign/alpaca_100.json",
+      "group": "alpaca-eval",
+      "bytes": 14085,
+      "sha256": "b2cded37230751ddac272a15f2c8abbf41db8e25395a2804b27be4bf737a16cf",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/benign_results/qwen/7b/corrigible-more-HHH/results_layer=18_multiplier=0.0_behavior=corrigible-more-HHH_model=qwen_7b_benign_source=alpaca.json",
+      "source_sha256": "9211b983dfdd25ab4cb69905ac384adc09f7c178ca146cfd0608468e61b76e87",
+      "changes": "Keep only input goal and behavior_id; remove generated model outputs"
+    },
+    {
+      "path": "data/benign/or-bench-hard-1k.csv",
+      "group": "orbench",
+      "bytes": 128815,
+      "sha256": "1c9522a39ffc89acfa6cee2aee481f4adabcb7945bfbb79e1331b239ba05e541",
+      "records": 1000,
+      "source_path": "analyse-steering-pitfall/datasets/or-bench-hard-1k.csv",
+      "source_sha256": "a6e2f1166416efe5901f3bb05c47dc92ab3aca3acfe143693d38b8057d841e6d",
+      "changes": "Keep the first 1000 rows, in recorded order, to match Appendix A.1; the research CSV contains 1319 rows. This is a paper-aligned selection, not a claim that historical runs used only these 1000 rows."
+    },
+    {
+      "path": "data/benign/xtest_safe.json",
+      "group": "xstest",
+      "bytes": 56865,
+      "sha256": "62513b2358d2cd6fe3c27edf52070c2a106a9bf9134941ebf144be495a82097c",
+      "records": 250,
+      "source_path": "analyse-steering-pitfall/datasets/xtest_safe.json",
+      "source_sha256": "62513b2358d2cd6fe3c27edf52070c2a106a9bf9134941ebf144be495a82097c",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/eval/jailbreakbench.csv",
+      "group": "jailbreakbench",
+      "bytes": 23116,
+      "sha256": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1",
+      "records": 100,
+      "source_path": "analyse-steering-pitfall/attack_artifacts/gcg_qwen_qwen2.5_7b_instruct_jailbreakbench.csv",
+      "source_sha256": "5102490aac13608e801e6f26fe601d049d019297f02554fd27d2097759f23d59",
+      "changes": "Keep the original JailbreakBench table and row order; remove the GCG suffix column"
+    },
+    {
+      "path": "data/saladbench_splits/harmful_train.json",
+      "group": "dim-splits",
+      "bytes": 166345,
+      "sha256": "ed86961aeb83a8400a7cbbd7e7d38f3e03cb7a95f75527da2dbec610e162a363",
+      "records": 1184,
+      "source_path": "data/saladbench_splits/harmful_train.json",
+      "source_sha256": "ed86961aeb83a8400a7cbbd7e7d38f3e03cb7a95f75527da2dbec610e162a363",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/saladbench_splits/harmful_val.json",
+      "group": "dim-splits",
+      "bytes": 18130,
+      "sha256": "fb4a724d3f4855c42c88e9ce685873b60d9723aca3647e375558813aba8c6ee3",
+      "records": 128,
+      "source_path": "data/saladbench_splits/harmful_val.json",
+      "source_sha256": "fb4a724d3f4855c42c88e9ce685873b60d9723aca3647e375558813aba8c6ee3",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/saladbench_splits/harmless_train.json",
+      "group": "dim-splits",
+      "bytes": 3125118,
+      "sha256": "08adab978fdc2cfc578473fb64a826696790e2635fea824f9909954c5adf2b15",
+      "records": 25058,
+      "source_path": "data/saladbench_splits/harmless_train.json",
+      "source_sha256": "08adab978fdc2cfc578473fb64a826696790e2635fea824f9909954c5adf2b15",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/saladbench_splits/harmless_val.json",
+      "group": "dim-splits",
+      "bytes": 391908,
+      "sha256": "7fc1fade972acee90795d5bb5398e20efb9bc797e25c169ad4cee750372840f4",
+      "records": 3132,
+      "source_path": "data/saladbench_splits/harmless_val.json",
+      "source_sha256": "7fc1fade972acee90795d5bb5398e20efb9bc797e25c169ad4cee750372840f4",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "data/train/harmful_train.json",
+      "group": "train",
+      "bytes": 189294,
+      "sha256": "e3e40ddd0d7f6e710ac92f389487aaae2988c636c41a3298ae3060a9d6daa63e",
+      "records": 1844,
+      "source_path": "data/alphasteer_splits/harmful_train.json",
+      "source_sha256": "e3e40ddd0d7f6e710ac92f389487aaae2988c636c41a3298ae3060a9d6daa63e",
+      "changes": "Copied without changes"
+    },
+    {
+      "path": "third_party/refusal_direction/dataset/processed/jailbreakbench.json",
+      "group": "dim-eval-set",
+      "bytes": 16512,
+      "sha256": "3a5aefa80c4a35f75a5306303aa8e69801e4ca4584e1f598bd2ddcf3e7fbbcdd",
+      "records": 100,
+      "source_path": "refusal_direction/dataset/processed/jailbreakbench.json",
+      "source_sha256": "3a5aefa80c4a35f75a5306303aa8e69801e4ca4584e1f598bd2ddcf3e7fbbcdd",
+      "changes": "Copied without changes"
+    }
+  ]
+}

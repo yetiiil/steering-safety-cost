@@ -1,0 +1,37 @@
+# CAST training configuration -- Qwen2.5-14B-Instruct.
+#
+# Hyperparameters follow Table 6 of arXiv:2608.08383v1.
+# This config is the paper setting; historical exploratory runs may differ.
+#
+# Usage:
+#   python train_cast.py --config configs/qwen2.5-14b-instruct.yaml \
+#       --behavior self-awareness-good-text-model
+
+model: qwen/qwen2.5-14b-instruct
+dtype: bfloat16
+
+# Rank-1 ablation: one direction r-hat, which is what every headline result uses.
+# The rank study (Table 4) reuses this file with --rank 2 / 4 / 8.
+rank: 1
+
+epochs: 5
+batch_size: 8
+effective_batch_size: 32
+
+# D_R over the refusal-token set (Eq. 3) as the safety objective.
+safety_loss_type: masked_kl
+
+# Verified steering layer for this model.
+steering_layer: 30
+# The 14B runs optimise at quarter strength rather than the half strength used
+# for the 7B/8B models.
+steering_multipliers: [-0.25, 0.25]
+
+# Constrained optimisation: epsilon_e, epsilon_f and the dual step size.
+effect_margin: 0.003
+frr_margin: 0
+dual_lr: 0.1
+lambda_effect_init: 0.35
+lambda_frr_init: 0.35
+
+frr_max_new_tokens: 4

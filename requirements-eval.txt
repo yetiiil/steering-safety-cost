@@ -1,0 +1,60 @@
+# Evaluation environment ("cast-eval"), Python 3.10+.
+#
+# Used by:
+#   generate_vectors.py, normalize_vectors.py    (stages 1-2 -- CAA vectors)
+#   run_steering.py, run_benign.py,
+#   run_open_ended.py, run_utility.py            (stages 6-8, 10 -- generation)
+#   evaluate_results.py                          (stage 9 -- the three judges)
+#
+# This release ships no analysis layer: turning the result files into the paper's
+# tables and figures is not part of it, so there is no plotting or notebook
+# dependency here.
+#
+# EXACT pin, do not relax: run_utility.py replaces the private
+# steering_vectors.steering_vector._create_additive_hook and imports
+# steering_vectors.torch_utils.untuple_tensor. The stock hook rebuilds its
+# position mask from the current forward's sequence length, so with a KV cache
+# every decoded token falls outside the mask and steering is silently dropped;
+# the patch fixes that against this version's internals.
+steering-vectors==0.12.2
+
+# Newer than the training environment on purpose. This environment cannot be
+# merged with requirements-train.txt -- nnsight 0.3.7 and nanogcg 0.3.0 hold
+# that one at transformers 4.47.0. Create two virtualenvs.
+torch>=2.6.0
+transformers>=4.51.0,<5.0.0
+accelerate
+# cast.projection (used by sanitize_vector.py) builds its projections with einops.
+einops
+
+numpy
+pandas
+scipy
+scikit-learn
+tqdm
+python-dotenv
+requests
+datasets
+
+# normalize_vectors.py reads its per-layer target norms from
+# configs/normalization_target_norms.yaml.
+PyYAML
+
+# evaluate_results.py: the two GPT judges and the StrongREJECT classifier.
+openai>=1.0.0
+git+https://github.com/dsbowen/strong_reject.git@main
+
+# run_utility.py --benchmarks ifeval (third_party/instruction_following_eval).
+# nltk also needs its `punkt` corpus: python -c "import nltk; nltk.download('punkt')"
+#
+# Capped below 3.9 on purpose. The vendored IFEval calls the pre-3.9 pickle API --
+# instructions_util._get_sentence_tokenizer() does
+# nltk.data.load("nltk:tokenizers/punkt/english.pickle") -- and nltk 3.9 dropped
+# pickle loading in favour of the `punkt_tab` resource. An unpinned install can
+# therefore fail `--benchmarks ifeval` even after nltk.download('punkt'). If you
+# must run a newer nltk, nltk.download('punkt_tab') covers the word_tokenize call
+# in instructions.py but not that pickle load, which has no punkt_tab equivalent.
+absl-py
+immutabledict
+langdetect
+nltk<3.9

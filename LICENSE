@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2026 Yuxiao Li, Gjergji Kasneci
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+SCOPE OF THE GRANT ABOVE
+
+The MIT grant above applies to this repository's original code, subject to the
+following exceptions. It does not relicense third-party datasets, model weights,
+or externally provided services. See THIRD_PARTY.md and DATA_CARD.md.
+
+1. Vendored code under `third_party/` retains its Apache-2.0 license, copyright
+   notices, and modification records. The corresponding license texts are
+   included in those directories.
+
+2. `train_cast.py` and `cast/projection.py` contain code adapted from
+   https://github.com/wollschlager/geometry-of-refusal, the RDO implementation of
+   Wollschlager et al. (arXiv:2502.17420). No explicit upstream license has been
+   identified. These two files are excluded from the MIT grant above pending
+   clarification of permission for the upstream-derived portions. The authors'
+   original CAST contributions to those files are offered under MIT; this does
+   not grant rights to the underlying upstream code.

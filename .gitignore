@@ -1,0 +1,76 @@
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.ruff_cache/
+*.egg-info/
+.venv*/
+
+# --- Editors / OS ------------------------------------------------------------
+.DS_Store
+.vscode/
+
+# --- Credentials -------------------------------------------------------------
+# Real secrets live only in the environment. `.env.example` is tracked; `.env`
+# never is.
+.env
+.envrc
+
+# --- Run output --------------------------------------------------------------
+wandb/
+logs/
+# Model weights, if the cache lands inside the checkout. scripts/slurm_example.sbatch
+# defaults HF_HOME to $PWD/.cache/huggingface, and HuggingFace stores blobs as
+# extension-less files, which none of the patterns below would catch.
+.cache/
+*.log
+*.out
+*.err
+*.npy
+
+# Tensors and pickles, wherever they land. Every checkpoint, steering vector and
+# refusal direction this pipeline writes is one of these, and a stray SAVE_DIR
+# can put one outside the trees below.
+*.pt
+*.pth
+*.safetensors
+*.pkl
+
+# Generated outputs; see the README section "Obtaining data and artifacts".
+jailbreak_results*/
+benign_results*/
+open_ended_results*/
+results*/
+utility/
+# This release ships no analysis layer, but a reader who writes one should not be
+# able to commit its output by accident.
+plots/
+figures/
+analysis/
+
+# Track the fixed input archive, its manifest and the layout documentation.
+# Extracted inputs and generated model artifacts stay ignored.
+/data/*
+!/data/.gitkeep
+!/data/README.md
+!/data/paper/
+/data/paper/*
+!/data/paper/manifest.json
+!/data/paper/inputs.zip
+/artifacts/*
+!/artifacts/.gitkeep
+!/artifacts/README.md
+
+# Prompt data the vendored DIM pipeline reads and writes. `scripts/00_download_data.py
+# --only dim-eval-set` copies JailbreakBench into dataset/processed/, and the upstream
+# layout also has raw/ and splits/ -- none of it is redistributed here, and
+# processed/alpaca.json would be CC-BY-NC-4.0. Without these lines a `git add -A`
+# after setup would stage a harmful-prompt dataset.
+third_party/refusal_direction/dataset/raw/
+third_party/refusal_direction/dataset/processed/
+third_party/refusal_direction/dataset/splits/
+# Where the DIM pipeline lands if SAVE_DIR is set to a relative path (see
+# .env.example -- leave it empty).
+third_party/refusal_direction/artifacts/
+
+# NOTE: shell scripts are deliberately NOT ignored. `scripts/` is a deliverable
+# and must be reviewable; it contains no credentials.

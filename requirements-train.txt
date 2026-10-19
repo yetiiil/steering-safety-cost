@@ -1,0 +1,44 @@
+# Training environment ("cast-train"), Python 3.10.
+#
+# Used by:
+#   train_cast.py                        (stage 5 -- learns the CAST direction)
+#   third_party/refusal_direction/       (stage 3 -- the DIM refusal direction)
+#   create_attack.py                     (GCG suffixes; nanogcg caps transformers)
+#
+# The three pins below are the versions the released vectors were trained under.
+# nnsight 0.3.x wraps the transformers module tree directly, so it does not
+# survive a transformers major/minor jump; nanogcg 0.3.0 independently declares
+# transformers<=4.47.1. Do not relax them if you want the paper's numbers.
+torch==2.5.1
+transformers==4.47.0
+nnsight==0.3.7
+
+accelerate==1.2.0
+einops==0.8.0
+triton==3.1.0
+
+# train_cast.py: --config YAML, dataframes, dual/loss bookkeeping, logging.
+PyYAML
+pandas
+numpy
+wandb
+python-dotenv
+tqdm
+
+# third_party/refusal_direction: typed activation tensors and the direction plots.
+jaxtyping
+matplotlib
+
+# GCG suffix optimisation (create_attack.py).
+nanogcg==0.3.0
+scipy
+sentencepiece
+
+# Harmful/harmless prompt sources for the DIM pipeline and create_attack.py,
+# and the download script.
+datasets
+requests
+
+# StrongREJECT: the DIM pipeline's jailbreak evaluation stage imports it.
+# Not on PyPI; installed from source, as upstream instructs.
+git+https://github.com/dsbowen/strong_reject.git@main

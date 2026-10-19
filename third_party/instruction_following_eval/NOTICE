@@ -1,0 +1,57 @@
+instruction_following_eval (IFEval)
+===================================
+
+This directory is a partial copy of the IFEval evaluator released by Google
+Research with
+
+> Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha Brahma, Sujoy Basu,
+> Yi Luan, Denny Zhou, Le Hou. *Instruction-Following Evaluation for Large
+> Language Models.* arXiv:2311.07911, 2023.
+
+* Upstream: <https://github.com/google-research/google-research/tree/master/instruction_following_eval>
+* Copyright The Google Research Authors.
+* Licensed under the Apache License, Version 2.0; see `LICENSE` in this
+  directory for the licence text.
+
+CAST uses it for the instruction-following (IFEval) utility measurement in
+`run_utility.py`; nothing in this repository changes how a response is scored.
+
+Files
+-----
+
+    __init__.py
+    evaluation_lib.py
+    instructions.py
+    instructions_registry.py
+    instructions_util.py
+
+The IFEval prompt set (`data/input_data.jsonl` upstream) is not redistributed
+here; see the README section "Obtaining data and artifacts".
+
+Modifications
+-------------
+
+In accordance with section 4(b) of the Apache License, the changes made to the
+original files are:
+
+1. `evaluation_lib.py`, `instructions.py`, `instructions_registry.py`: the
+   sibling imports `from instruction_following_eval import <module>` were made
+   relative (`from . import <module>`), because this package is vendored one
+   level down, under `third_party/`, and is imported as
+   `third_party.instruction_following_eval`. Each changed file carries a comment
+   at the import saying so. No evaluation logic was touched.
+2. `__init__.py` (empty) is not part of the upstream directory; it is here so the
+   vendored copy is a regular package.
+
+Everything else is upstream verbatim. The copy predates the type-checker
+pragma comments (`# pyrefly: ignore[...]`) that upstream has since added to
+`evaluation_lib.py` and `instructions.py`; stripping those comments from today's
+upstream files and making the one import relative reproduces all three changed
+files exactly, byte for byte. `instructions_util.py` is unchanged from upstream
+and therefore carries no notice.
+
+The per-file headers read "Copyright 2026 The Google Research Authors", which is
+what upstream's own headers currently read — the google-research monorepo
+rewrites the year across the tree each year (the same files read 2023 when
+IFEval was first published in November 2023, and 2024 in January 2024). The
+headers are therefore left exactly as upstream publishes them.

@@ -1,0 +1,136 @@
+# Per-layer target L2 norm for CAA steering vectors, one entry per model.
+#
+# normalize_vectors.py rescales every behaviour's raw vector at a given layer to a
+# single shared norm, so that a multiplier means the same thing across behaviours.
+# The published vectors used the mean raw norm over the seven behaviours that were
+# present when they were generated -- three of which (coordinate-itself,
+# coordinate-other-ais, wealth-seeking-inclination) this paper never reports.
+#
+# Recording the resulting norms here removes that dependency: reproducing the
+# published scale no longer requires generating vectors for behaviours the paper
+# does not use. Normalising over the paper's behaviours alone would instead shrink
+# the target by about 3% at the steering layers, and by up to 14% at the last layer,
+# which would silently change what every multiplier means.
+#
+# Values were recovered from the released normalized vectors and agree with them to
+# within 0.011% at every layer of every model.
+
+qwen/qwen2.5-7b-instruct:
+  # 28 layers, d_model = 3584
+  target_norms:
+    0: 0.106430
+    1: 0.128134
+    2: 0.199832
+    3: 0.269245
+    4: 0.324137
+    5: 0.438158
+    6: 0.513033
+    7: 0.569419
+    8: 0.878049
+    9: 1.392930
+    10: 1.311689
+    11: 2.372947
+    12: 2.858815
+    13: 2.907977
+    14: 9.367686
+    15: 9.777188
+    16: 11.905302
+    17: 17.836852
+    18: 18.028906
+    19: 23.195232
+    20: 26.111762
+    21: 29.222200
+    22: 34.405703
+    23: 39.966991
+    24: 46.785370
+    25: 54.811930
+    26: 65.982695
+    27: 79.971716
+
+qwen/qwen2.5-14b-instruct:
+  # 48 layers, d_model = 5120
+  target_norms:
+    0: 0.174179
+    1: 0.181827
+    2: 0.211938
+    3: 0.257140
+    4: 0.289338
+    5: 0.381086
+    6: 0.400411
+    7: 0.425809
+    8: 0.510815
+    9: 0.558252
+    10: 0.581033
+    11: 0.596127
+    12: 0.697800
+    13: 0.801344
+    14: 0.869529
+    15: 1.005938
+    16: 1.296459
+    17: 1.310065
+    18: 1.373825
+    19: 4.327993
+    20: 6.740381
+    21: 6.449897
+    22: 7.776373
+    23: 8.643369
+    24: 8.550114
+    25: 15.164782
+    26: 18.901303
+    27: 19.790652
+    28: 21.702257
+    29: 27.575153
+    30: 34.522073
+    31: 40.213208
+    32: 45.432237
+    33: 50.587480
+    34: 55.517352
+    35: 58.952096
+    36: 65.811109
+    37: 73.090442
+    38: 78.535789
+    39: 86.081468
+    40: 91.827649
+    41: 100.192183
+    42: 108.785023
+    43: 120.401213
+    44: 135.075764
+    45: 147.753737
+    46: 170.909247
+    47: 187.385112
+
+meta-llama/llama-3.1-8b-instruct:
+  # 32 layers, d_model = 4096
+  target_norms:
+    0: 0.010026
+    1: 0.012819
+    2: 0.029655
+    3: 0.040656
+    4: 0.052878
+    5: 0.084722
+    6: 0.139855
+    7: 0.155751
+    8: 0.312224
+    9: 1.608484
+    10: 2.248183
+    11: 2.167433
+    12: 2.464220
+    13: 2.628633
+    14: 2.768933
+    15: 2.623156
+    16: 2.608422
+    17: 2.636830
+    18: 2.743125
+    19: 2.906562
+    20: 3.142053
+    21: 3.483037
+    22: 3.779883
+    23: 4.065899
+    24: 4.370229
+    25: 4.692654
+    26: 5.104125
+    27: 5.529944
+    28: 5.976261
+    29: 6.700686
+    30: 7.711492
+    31: 9.559329

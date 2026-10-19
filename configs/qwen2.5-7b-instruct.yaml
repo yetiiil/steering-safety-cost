@@ -1,0 +1,38 @@
+# CAST training configuration -- Qwen2.5-7B-Instruct.
+#
+# Values are the ones used for the paper's Qwen-7B runs; they come from the
+# command lines that produced the released vectors. Nothing here relies on
+# DEFAULT_CONFIG in train_cast.py: every value the runs depended on is written out.
+#
+# Usage:
+#   python train_cast.py --config configs/qwen2.5-7b-instruct.yaml \
+#       --behavior myopic-reward
+
+model: qwen/qwen2.5-7b-instruct
+dtype: bfloat16
+
+# Rank-1 ablation: one direction r-hat, which is what every headline result uses.
+# The rank study (Table 4) reuses this file with --rank 2 / 4 / 8.
+rank: 1
+
+epochs: 5
+batch_size: 8
+effective_batch_size: 32
+
+# D_R over the refusal-token set (Eq. 3) as the safety objective.
+safety_loss_type: masked_kl
+
+# Verified steering layer for this model.
+steering_layer: 18
+# The vector is optimised against both steering polarities at half strength;
+# evaluation then sweeps the full multiplier range.
+steering_multipliers: [-0.5, 0.5]
+
+# Constrained optimisation: epsilon_e, epsilon_f and the dual step size.
+effect_margin: 0.003
+frr_margin: 0
+dual_lr: 0.25
+lambda_effect_init: 0.4
+lambda_frr_init: 0.1
+
+frr_max_new_tokens: 4
